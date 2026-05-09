@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Interactive English Lab - Past Simple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Cairo', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFD93D 0%, #6BCB77 25%, #4D96FF 50%, #FF6B9D 75%, #FFD93D 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #2d3436;
+            line-height: 1.9;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, #FF6B9D 0%, #FFD93D 100%);
+            padding: 60px 30px;
+            border-radius: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 8px solid white;
+        }
+
+        .header::before {
+            content: '📚 ⏰ 🎉 ✨ 🎓';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3em;
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 4em;
+            font-weight: 900;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.6em;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 6px solid #FFD93D;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 217, 61, 0.1);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            border-color: #FF6B9D;
+        }
+
+        .section h2 {
+            color: #FF6B9D;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 5px dashed #6BCB77;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section h3 {
+            color: #4D96FF;
+            font-size: 1.8em;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #6BCB77 0%, #4D96FF 100%);
+            color: white;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-text {
+            font-size: 1.2em;
+            line-height: 2.2;
+            color: #2d3436;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #FFD93D15, #6BCB7715);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 6px solid #FF6B9D;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== EXAMPLE BOX ===== */
+        .example-box {
+            background: linear-gradient(135deg, #FF6B9D15, #FFD93D15);
+            border: 4px solid #FF6B9D;
+            border-radius: 18px;
+            padding: 25px;
+            margin: 25px 0;
+            font-size: 1.15em;
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.15);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 30px rgba(255, 107, 157, 0.25);
+        }
+
+        .example-box .en {
+            color: #4D96FF;
+            font-weight: 800;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+        }
+
+        .example-box .ar {
+            color: #FF6B9D;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* ===== RULE BOX ===== */
+        .rule-box {
+            background: linear-gradient(135deg, #6BCB77 0%, #4D96FF 100%);
+            border: 4px dashed white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 18px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.15em;
+            box-shadow: 0 10px 30px rgba(107, 203, 119, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .rule-box strong {
+            color: #FFD93D;
+            font-size: 1.3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== VERB CARDS ===== */
+        .verbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .verb-card {
+            background: linear-gradient(135deg, #FFD93D, #6BCB77);
+            border: 5px solid white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            transform: perspective(1000px) rotateX(0deg);
+        }
+
+        .verb-card:hover {
+            transform: translateY(-10px) scale(1.05) perspective(1000px) rotateX(5deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .verb-card .verb {
+            color: white;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .verb-card .past {
+            color: #2d3436;
+            font-size: 1.2em;
+            font-weight: 900;
+        }
+
+        /* ===== MIND MAP ===== */
+        .mind-map {
+            background: linear-gradient(135deg, #6BCB77 0%, #4D96FF 100%);
+            border: 6px dashed white;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 35px 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .mind-map-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .mind-map-item:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateX(-15px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mind-map-icon {
+            color: #FF6B9D;
+            font-size: 2.5em;
+            margin-left: 20px;
+            min-width: 60px;
+            text-align: center;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .mind-map-text {
+            flex: 1;
+            color: #2d3436;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .mind-map-text strong {
+            color: #FF6B9D;
+            font-size: 1.2em;
+        }
+
+        /* ===== QUIZ ===== */
+        .quiz-container {
+            background: linear-gradient(135deg, #FFD93D 0%, #FF6B9D 50%, #6BCB77 100%);
+            border: 8px solid white;
+            border-radius: 30px;
+            padding: 50px;
+            margin: 50px 0;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-container::before {
+            content: '🎮 🎯 🌟 🎪 🎨';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5em;
+            opacity: 0.3;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 45px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quiz-header h2 {
+            color: white;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            font-weight: 900;
+        }
+
+        .quiz-header p {
+            color: white;
+            font-size: 1.4em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            background: white;
+            border: 6px solid #4D96FF;
+            border-radius: 22px;
+            padding: 35px;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            position: relative;
+            z-index: 1;
+        }
+
+        .question:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+            border-color: #FF6B9D;
+        }
+
+        .question-number {
+            color: #FF6B9D;
+            font-weight: 900;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .question-text {
+            color: #2d3436;
+            font-size: 1.2em;
+            margin-bottom: 28px;
+            line-height: 1.9;
+            background: linear-gradient(135deg, #FFD93D15, #6BCB7715);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #FF6B9D;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .option {
+            background: linear-gradient(135deg, #FFD93D 0%, #6BCB77 100%);
+            border: 4px solid white;
+            padding: 18px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: right;
+            color: white;
+            font-weight: 700;
+            font-size: 1.08em;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transform: scale(1);
+        }
+
+        .option:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .option:active {
+            transform: scale(0.95);
+        }
+
+        .option.correct {
+            background: linear-gradient(135deg, #6BCB77 0%, #4D96FF 100%);
+            animation: correct-pulse 0.5s ease;
+        }
+
+        @keyframes correct-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .answer-section {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 4px dashed #FFD93D;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .answer-label {
+            color: #6BCB77;
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .answer-text {
+            color: #FF6B9D;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .answer-explanation {
+            color: #2d3436;
+            font-size: 1em;
+            margin-top: 15px;
+            padding: 18px;
+            background: linear-gradient(135deg, #FFD93D15, #6BCB7715);
+            border-right: 5px solid #4D96FF;
+            border-radius: 12px;
+            line-height: 1.8;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            margin-top: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .verbs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .quiz-container {
+                padding: 30px;
+            }
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            background: linear-gradient(135deg, #FF6B9D 0%, #FFD93D 100%);
+            color: white;
+            border: 5px solid white;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== FLIP CARD ===== */
+        .flip-card {
+            background: white;
+            border: 5px solid #4D96FF;
+            border-radius: 18px;
+            padding: 25px;
+            margin: 25px 0;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-style: preserve-3d;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .flip-card:hover {
+            transform: scale(1.05);
+        }
+
+        .flip-card.flipped {
+            background: linear-gradient(135deg, #6BCB77 0%, #4D96FF 100%);
+            color: white;
+            border-color: #FF6B9D;
+        }
+
+        .flip-card-content {
+            font-size: 1.3em;
+            font-weight: 700;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <h1>🎓 PAST SIMPLE 🎯</h1>
+            <p>🌟 شرح ممتع وسهل للزمن الماضي البسيط! ✨</p>
+        </div>
+
+        <!-- ===== SECTION 1 ===== -->
+        <div class="section">
+            <h2>📖 ما هو Past Simple؟</h2>
+            
+            <div class="content-text">
+                <strong>Past Simple</strong> (الزمن الماضي البسيط) يُستخدم للحديث عن حدث <strong>انتهى تماماً في الماضي</strong>! 
+                الحدث بدأ وانتهى وخلاص! 😄
+            </div>
+
+            <div class="rule-box">
+                <strong>⚡ القاعدة الذهبية:</strong><br>
+                <br>
+                حدث حصل في الماضي البعيد أو القريب وانتهى تماماً والآن لا يحدث!<br>
+                يجب نقول <strong>الوقت المحدد</strong> (أمس، الأسبوع الماضي، في 2020)
+            </div>
+
+            <h3>🎪 أمثلة سريعة:</h3>
+
+            <div class="example-box">
+                <div class="en">I went to Cairo last week</div>
+                <div class="ar">ذهبت إلى القاهرة الأسبوع الماضي (انتهى الحدث تماماً) ✅</div>
+            </div>
+
+            <div class="example-box">
+                <div class="en">She studied French when she was young</div>
+                <div class="ar">درست الفرنسية عندما كانت صغيرة (توقفت الآن) ✅</div>
+            </div>
+
+            <div class="example-box">
+                <div class="en">They played football yesterday</div>
+                <div class="ar">لعبوا كرة القدم أمس (خلصوا اللعبة) ✅</div>
+            </div>
+        </div>
+
+        <!-- ===== SECTION 2 ===== -->
+        <div class="section">
+            <h2>🔨 كيفية التكوين؟</h2>
+
+            <h3>💡 الأفعال العادية (Regular Verbs)</h3>
+
+            <div class="rule-box">
+                <strong>اجمع = الفعل + ed</strong><br>
+                <br>
+                ✨ want → wanted<br>
+                ✨ call → called<br>
+                ✨ like → liked<br>
+                ✨ work → worked<br>
+                ✨ play → played
+            </div>
+
+            <h3>⚡ الأفعال الشاذة (Irregular Verbs)</h3>
+
+            <div class="content-text">
+                أفعال خاصة لا تتبع النمط! يجب تحفظها! 🎓
+            </div>
+
+            <div class="verbs-grid">
+                <div class="verb-card" onclick="playSound('go')">
+                    <div class="verb">🚀 go</div>
+                    <div class="past">went</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🏃 run</div>
+                    <div class="past">ran</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">📝 write</div>
+                    <div class="past">wrote</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🍴 eat</div>
+                    <div class="past">ate</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">👀 see</div>
+                    <div class="past">saw</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">👂 hear</div>
+                    <div class="past">heard</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🤔 think</div>
+                    <div class="past">thought</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🛠️ make</div>
+                    <div class="past">made</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🎁 give</div>
+                    <div class="past">gave</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🧠 know</div>
+                    <div class="past">knew</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">👕 wear</div>
+                    <div class="past">wore</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">📞 call</div>
+                    <div class="past">called</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🏗️ build</div>
+                    <div class="past">built</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">💰 cost</div>
+                    <div class="past">cost</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🚗 drive</div>
+                    <div class="past">drove</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🏠 live</div>
+                    <div class="past">lived</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">📖 read</div>
+                    <div class="past">read</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🤝 meet</div>
+                    <div class="past">met</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">🎤 speak</div>
+                    <div class="past">spoke</div>
+                </div>
+                <div class="verb-card">
+                    <div class="verb">💪 take</div>
+                    <div class="past">took</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SECTION 3 ===== -->
+        <div class="section">
+            <h2>🎯 4 استخدامات مهمة جداً!</h2>
+
+            <h3>1️⃣ حدث واحد انتهى</h3>
+            <div class="example-box">
+                <div class="en">I met my wife in 1983</div>
+                <div class="ar">التقيت بزوجتي في 1983 (اليوم حدث واحد انتهى) 💍</div>
+            </div>
+
+            <h3>2️⃣ سلسلة أحداث متتالية</h3>
+            <div class="example-box">
+                <div class="en">I finished work, walked to the beach, and found a nice place</div>
+                <div class="ar">انتهيت من العمل، مشيت إلى الشاطئ، ووجدت مكان جميل (1️⃣ 2️⃣ 3️⃣)</div>
+            </div>
+
+            <h3>3️⃣ مدة زمنية انتهت</h3>
+            <div class="example-box">
+                <div class="en">I lived in Brazil for two years</div>
+                <div class="ar">عشت في البرازيل لمدة سنتين (وتركتها الآن) 🏡</div>
+            </div>
+
+            <h3>4️⃣ عادة قديمة توقفت</h3>
+            <div class="example-box">
+                <div class="en">I studied French when I was a child</div>
+                <div class="ar">درست الفرنسية عندما كنت طفل (توقفت عن الدراسة الآن) 🎓</div>
+            </div>
+        </div>
+
+        <!-- ===== SECTION 4 ===== -->
+        <div class="section">
+            <h2>❓ الأسئلة والنفي</h2>
+
+            <h3>📢 الأسئلة:</h3>
+            <div class="rule-box">
+                <strong>did + الشخص + الفعل (الأساسي بدون ed)</strong><br>
+                <br>
+                ✅ Did you meet your wife?<br>
+                ✅ Where did you go?<br>
+                ✅ Did she play tennis?
+            </div>
+
+            <h3>🚫 النفي:</h3>
+            <div class="rule-box">
+                <strong>didn't (did not) + الفعل (الأساسي بدون ed)</strong><br>
+                <br>
+                ✅ They didn't go to Spain<br>
+                ✅ We didn't get home<br>
+                ✅ I didn't see you yesterday
+            </div>
+
+            <div class="content-text" style="background: linear-gradient(135deg, #FFD93D15, #FF6B9D15);">
+                <strong>⚠️ قاعدة ذهبية مهمة جداً:</strong><br>
+                في الأسئلة والنفي، الفعل يرجع <strong>للصيغة الأساسية</strong> (بدون -ed)
+                لأن "did/didn't" هو اللي يحمل معنى الزمن الماضي!
+            </div>
+        </div>
+
+        <!-- ===== SECTION 5 ===== -->
+        <div class="section">
+            <h2>🗺️ خريطة ذهنية ملخصة</h2>
+
+            <div class="mind-map">
+                <div class="mind-map-item">
+                    <div class="mind-map-text">
+                        <strong>الصيغة:</strong> Verb + ed (أو الفعل الشاذ)
+                    </div>
+                    <div class="mind-map-icon">📐</div>
+                </div>
+
+                <div class="mind-map-item">
+                    <div class="mind-map-text">
+                        <strong>الاستخدام:</strong> حدث انتهى مع وقت محدد (أمس، الأسبوع الماضي)
+                    </div>
+                    <div class="mind-map-icon">⏰</div>
+                </div>
+
+                <div class="mind-map-item">
+                    <div class="mind-map-text">
+                        <strong>الأسئلة:</strong> Did + subject + verb (basic)?
+                    </div>
+                    <div class="mind-map-icon">❓</div>
+                </div>
+
+                <div class="mind-map-item">
+                    <div class="mind-map-text">
+                        <strong>النفي:</strong> Subject + didn't + verb (basic)
+                    </div>
+                    <div class="mind-map-icon">🚫</div>
+                </div>
+
+                <div class="mind-map-item">
+                    <div class="mind-map-text">
+                        <strong>كلمات دالة:</strong> yesterday, last week, ago, in 2020, when I was...
+                    </div>
+                    <div class="mind-map-icon">🏷️</div>
+                </div>
+
+                <div class="mind-map-item">
+                    <div class="mind-map-text">
+                        <strong>انتبه!</strong> ممنوع: "I go yesterday" ❌ | صحيح: "I went yesterday" ✅
+                    </div>
+                    <div class="mind-map-icon">⚡</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== QUIZ ===== -->
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <h2>🎮 اختبر نفسك! 🏆</h2>
+                <p>30 سؤال ممتع - اختر الإجابة الصحيحة واكسب نقاط! ⭐</p>
+            </div>
+
+            <!-- Q1 -->
+            <div class="question">
+                <div class="question-number">1️⃣ السؤال الأول</div>
+                <div class="question-text">I ........... to Cairo last year</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) go</div>
+                    <div class="option" onclick="checkAnswer(this)">B) went ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) going</div>
+                    <div class="option" onclick="checkAnswer(this)">D) am going</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) went</div>
+                    <div class="answer-text">I went to Cairo last year</div>
+                    <div class="answer-explanation">
+                        "last year" = وقت محدد في الماضي<br>
+                        "go" في الماضي = "went" (فعل شاذ)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question">
+                <div class="question-number">2️⃣ السؤال الثاني</div>
+                <div class="question-text">She ........... French when she was a child</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) studied ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) studies</div>
+                    <div class="option" onclick="checkAnswer(this)">C) is studying</div>
+                    <div class="option" onclick="checkAnswer(this)">D) has studied</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) studied</div>
+                    <div class="answer-text">She studied French when she was a child</div>
+                    <div class="answer-explanation">
+                        عادة قديمة توقفت<br>
+                        "study" + ed = "studied"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question">
+                <div class="question-number">3️⃣ السؤال الثالث</div>
+                <div class="question-text">Did you ........... to the party last night?</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) went</div>
+                    <div class="option" onclick="checkAnswer(this)">B) go ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) gone</div>
+                    <div class="option" onclick="checkAnswer(this)">D) going</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) go</div>
+                    <div class="answer-text">Did you go to the party last night?</div>
+                    <div class="answer-explanation">
+                        في الأسئلة مع "did"، الفعل يرجع لصيغته الأساسية<br>
+                        "Did" هو اللي يحمل معنى الزمن الماضي
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question">
+                <div class="question-number">4️⃣ السؤال الرابع</div>
+                <div class="question-text">They ........... the motorway and ........... for an hour</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) left / drove ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) leave / drive</div>
+                    <div class="option" onclick="checkAnswer(this)">C) left / drive</div>
+                    <div class="option" onclick="checkAnswer(this)">D) leave / drove</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) left / drove</div>
+                    <div class="answer-text">They left the motorway and drove for an hour</div>
+                    <div class="answer-explanation">
+                        أحداث متتالية<br>
+                        "leave" → "left" (فعل شاذ)<br>
+                        "drive" → "drove" (فعل شاذ)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question">
+                <div class="question-number">5️⃣ السؤال الخامس</div>
+                <div class="question-text">I ........... my wallet and ........... the bill</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) took / paid ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) take / pay</div>
+                    <div class="option" onclick="checkAnswer(this)">C) took / pay</div>
+                    <div class="option" onclick="checkAnswer(this)">D) take / paid</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) took / paid</div>
+                    <div class="answer-text">I took my wallet and paid the bill</div>
+                    <div class="answer-explanation">
+                        أحداث متتالية<br>
+                        "take" → "took"<br>
+                        "pay" → "paid"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="question">
+                <div class="question-number">6️⃣ السؤال السادس</div>
+                <div class="question-text">When she ........... to the interview, she ........... her best outfit</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) went / wear</div>
+                    <div class="option" onclick="checkAnswer(this)">B) went / wore ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) goes / wore</div>
+                    <div class="option" onclick="checkAnswer(this)">D) go / worn</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) went / wore</div>
+                    <div class="answer-text">When she went to the interview, she wore her best outfit</div>
+                    <div class="answer-explanation">
+                        أحداث متتالية<br>
+                        "go" → "went"<br>
+                        "wear" → "wore" (فعل شاذ)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question">
+                <div class="question-number">7️⃣ السؤال السابع</div>
+                <div class="question-text">I ........... in Brazil for two years</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) live</div>
+                    <div class="option" onclick="checkAnswer(this)">B) lived ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) am living</div>
+                    <div class="option" onclick="checkAnswer(this)">D) have lived</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) lived</div>
+                    <div class="answer-text">I lived in Brazil for two years</div>
+                    <div class="answer-explanation">
+                        مدة زمنية انتهت في الماضي<br>
+                        "live" + ed = "lived"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question">
+                <div class="question-number">8️⃣ السؤال الثامن</div>
+                <div class="question-text">He ........... fourteen novels, but not one of them ........... a prize</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) wrote / won ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) write / win</div>
+                    <div class="option" onclick="checkAnswer(this)">C) wrote / win</div>
+                    <div class="option" onclick="checkAnswer(this)">D) write / won</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) wrote / won</div>
+                    <div class="answer-text">He wrote fourteen novels, but not one of them won a prize</div>
+                    <div class="answer-explanation">
+                        أفعال شاذة<br>
+                        "write" → "wrote"<br>
+                        "win" → "won"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question">
+                <div class="question-number">9️⃣ السؤال التاسع</div>
+                <div class="question-text">They ........... their own house, so it ........... them much less</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) built / cost ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) build / costs</div>
+                    <div class="option" onclick="checkAnswer(this)">C) built / costs</div>
+                    <div class="option" onclick="checkAnswer(this)">D) build / cost</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) built / cost</div>
+                    <div class="answer-text">They built their own house, so it cost them much less</div>
+                    <div class="answer-explanation">
+                        أفعال شاذة<br>
+                        "build" → "built"<br>
+                        "cost" → "cost" (الماضي = الأساسي)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="question">
+                <div class="question-number">🔟 السؤال العاشر</div>
+                <div class="question-text">When I ........... you were coming, I ........... the staff the rest of the day off</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) heard / gave ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) hear / give</div>
+                    <div class="option" onclick="checkAnswer(this)">C) heard / give</div>
+                    <div class="option" onclick="checkAnswer(this)">D) hear / gave</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) heard / gave</div>
+                    <div class="answer-text">When I heard you were coming, I gave the staff the rest of the day off</div>
+                    <div class="answer-explanation">
+                        أفعال شاذة<br>
+                        "hear" → "heard"<br>
+                        "give" → "gave"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q11-20 -->
+            <div class="question">
+                <div class="question-number">1️⃣1️⃣ السؤال الحادي عشر</div>
+                <div class="question-text">She ........... (go) to Australia in 1994</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) go</div>
+                    <div class="option" onclick="checkAnswer(this)">B) went ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) goes</div>
+                    <div class="option" onclick="checkAnswer(this)">D) gone</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) went</div>
+                    <div class="answer-text">She went to Australia in 1994</div>
+                    <div class="answer-explanation">
+                        وقت محدد في الماضي<br>
+                        "go" → "went"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣2️⃣ السؤال الثاني عشر</div>
+                <div class="question-text">My father usually ........... (like) his steak well-done</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) liked</div>
+                    <div class="option" onclick="checkAnswer(this)">B) likes ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) like</div>
+                    <div class="option" onclick="checkAnswer(this)">D) liking</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) likes</div>
+                    <div class="answer-text">My father usually likes his steak well-done</div>
+                    <div class="answer-explanation">
+                        "usually" = عادة الآن (حاضر)<br>
+                        استخدم Present Simple وليس Past Simple
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣3️⃣ السؤال الثالث عشر</div>
+                <div class="question-text">The dog ........... (eat) its toy last night</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) eat</div>
+                    <div class="option" onclick="checkAnswer(this)">B) ate ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) eats</div>
+                    <div class="option" onclick="checkAnswer(this)">D) eaten</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) ate</div>
+                    <div class="answer-text">The dog ate its toy last night</div>
+                    <div class="answer-explanation">
+                        "last night" = وقت محدد في الماضي<br>
+                        "eat" → "ate" (فعل شاذ)
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣4️⃣ السؤال الرابع عشر</div>
+                <div class="question-text">The policeman ........... (talk) to the burglar yesterday</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) talk</div>
+                    <div class="option" onclick="checkAnswer(this)">B) talked ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) talks</div>
+                    <div class="option" onclick="checkAnswer(this)">D) talking</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) talked</div>
+                    <div class="answer-text">The policeman talked to the burglar yesterday</div>
+                    <div class="answer-explanation">
+                        "yesterday" = وقت محدد<br>
+                        "talk" + ed = "talked"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣5️⃣ السؤال الخامس عشر</div>
+                <div class="question-text">........... (you / have) a test last week?</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) Did you have ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) Have you had</div>
+                    <div class="option" onclick="checkAnswer(this)">C) Had you</div>
+                    <div class="option" onclick="checkAnswer(this)">D) Do you have</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) Did you have</div>
+                    <div class="answer-text">Did you have a test last week?</div>
+                    <div class="answer-explanation">
+                        "last week" = ماضي<br>
+                        في الأسئلة: Did + subject + verb (basic)
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣6️⃣ السؤال السادس عشر</div>
+                <div class="question-text">I often see her mother but she never ........... (speak) to me</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) spoke</div>
+                    <div class="option" onclick="checkAnswer(this)">B) speaks ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) spoke</div>
+                    <div class="option" onclick="checkAnswer(this)">D) speaking</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) speaks</div>
+                    <div class="answer-text">She never speaks to me</div>
+                    <div class="answer-explanation">
+                        "often see" = حاضر<br>
+                        الجملة عن الحالة الآن وليس الماضي
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣7️⃣ السؤال السابع عشر</div>
+                <div class="question-text">The gentleman ........... (speak) to his servant 2 hours ago</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) speak</div>
+                    <div class="option" onclick="checkAnswer(this)">B) spoke ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) speaks</div>
+                    <div class="option" onclick="checkAnswer(this)">D) speaking</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) spoke</div>
+                    <div class="answer-text">The gentleman spoke to his servant 2 hours ago</div>
+                    <div class="answer-explanation">
+                        "2 hours ago" = ماضي<br>
+                        "speak" → "spoke"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣8️⃣ السؤال الثامن عشر</div>
+                <div class="question-text">He ........... (not / come) to the office yesterday morning</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) didn't come ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) doesn't come</div>
+                    <div class="option" onclick="checkAnswer(this)">C) didn't came</div>
+                    <div class="option" onclick="checkAnswer(this)">D) doesn't came</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) didn't come</div>
+                    <div class="answer-text">He didn't come to the office yesterday morning</div>
+                    <div class="answer-explanation">
+                        نفي مع Past Simple<br>
+                        didn't + الفعل الأساسي (بدون ed)
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">1️⃣9️⃣ السؤال التاسع عشر</div>
+                <div class="question-text">What film ........... (you / see) last week?</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) did you see ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) have you seen</div>
+                    <div class="option" onclick="checkAnswer(this)">C) do you see</div>
+                    <div class="option" onclick="checkAnswer(this)">D) you saw</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) did you see</div>
+                    <div class="answer-text">What film did you see last week?</div>
+                    <div class="answer-explanation">
+                        "last week" = ماضي<br>
+                        في الأسئلة: Did + you + see
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣0️⃣ السؤال العشرون</div>
+                <div class="question-text">They ........... (play) volleyball and ........... (have) fun last summer</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) played / had ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) play / have</div>
+                    <div class="option" onclick="checkAnswer(this)">C) played / have</div>
+                    <div class="option" onclick="checkAnswer(this)">D) play / had</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) played / had</div>
+                    <div class="answer-text">They played volleyball and had fun last summer</div>
+                    <div class="answer-explanation">
+                        "last summer" = ماضي<br>
+                        "play" → "played"<br>
+                        "have" → "had"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q21-30 -->
+            <div class="question">
+                <div class="question-number">2️⃣1️⃣ السؤال الحادي والعشرون</div>
+                <div class="question-text">I ........... to the cinema last night</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) go</div>
+                    <div class="option" onclick="checkAnswer(this)">B) went ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) have gone</div>
+                    <div class="option" onclick="checkAnswer(this)">D) am going</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) went</div>
+                    <div class="answer-text">I went to the cinema last night</div>
+                    <div class="answer-explanation">
+                        "last night" = وقت محدد<br>
+                        "go" → "went"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣2️⃣ السؤال الثاني والعشرون</div>
+                <div class="question-text">My brothers ........... (leave) for England last week</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) leave</div>
+                    <div class="option" onclick="checkAnswer(this)">B) left ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) leaves</div>
+                    <div class="option" onclick="checkAnswer(this)">D) leaving</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) left</div>
+                    <div class="answer-text">My brothers left for England last week</div>
+                    <div class="answer-explanation">
+                        "last week" = وقت محدد<br>
+                        "leave" → "left"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣3️⃣ السؤال الثالث والعشرون</div>
+                <div class="question-text">My sisters ........... (leave) for England every year in June</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) left</div>
+                    <div class="option" onclick="checkAnswer(this)">B) leave ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) leaves</div>
+                    <div class="option" onclick="checkAnswer(this)">D) leaving</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) leave</div>
+                    <div class="answer-text">My sisters leave for England every year in June</div>
+                    <div class="answer-explanation">
+                        "every year" = عادة متكررة الآن<br>
+                        استخدم Present Simple
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣4️⃣ السؤال الرابع والعشرون</div>
+                <div class="question-text">I ........... (read) a romantic story last week</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) read ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) reads</div>
+                    <div class="option" onclick="checkAnswer(this)">C) have read</div>
+                    <div class="option" onclick="checkAnswer(this)">D) reading</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) read</div>
+                    <div class="answer-text">I read a romantic story last week</div>
+                    <div class="answer-explanation">
+                        "last week" = وقت محدد<br>
+                        "read" الماضي مثل الأساسي (لكن ينطق مختلف)
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣5️⃣ السؤال الخامس والعشرون</div>
+                <div class="question-text">Yesterday, I ........... (go) to the opera</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) go</div>
+                    <div class="option" onclick="checkAnswer(this)">B) went ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) have gone</div>
+                    <div class="option" onclick="checkAnswer(this)">D) going</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) went</div>
+                    <div class="answer-text">Yesterday, I went to the opera</div>
+                    <div class="answer-explanation">
+                        "Yesterday" = وقت محدد<br>
+                        "go" → "went"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣6️⃣ السؤال السادس والعشرون</div>
+                <div class="question-text">The man ........... (drive) to the supermarket last weekend</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) drive</div>
+                    <div class="option" onclick="checkAnswer(this)">B) drove ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) drives</div>
+                    <div class="option" onclick="checkAnswer(this)">D) driving</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) drove</div>
+                    <div class="answer-text">The man drove to the supermarket last weekend</div>
+                    <div class="answer-explanation">
+                        "last weekend" = وقت محدد<br>
+                        "drive" → "drove"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣7️⃣ السؤال السابع والعشرون</div>
+                <div class="question-text">She ........... (prefer) to read a book</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) preferred</div>
+                    <div class="option" onclick="checkAnswer(this)">B) prefer ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">C) have preferred</div>
+                    <div class="option" onclick="checkAnswer(this)">D) preferring</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: B) prefer</div>
+                    <div class="answer-text">She prefers to read a book</div>
+                    <div class="answer-explanation">
+                        حالة حالية (العادة الآن)<br>
+                        استخدم Present Simple
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣8️⃣ السؤال الثامن والعشرون</div>
+                <div class="question-text">I ........... (think) I ........... (understand) this theory but now I'm not sure</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) thought / understood ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) thought / understand</div>
+                    <div class="option" onclick="checkAnswer(this)">C) think / understood</div>
+                    <div class="option" onclick="checkAnswer(this)">D) think / understand</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) thought / understood</div>
+                    <div class="answer-text">I thought I understood this theory</div>
+                    <div class="answer-explanation">
+                        أفعال شاذة<br>
+                        "think" → "thought"<br>
+                        "understand" → "understood"
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">2️⃣9️⃣ السؤال التاسع والعشرون</div>
+                <div class="question-text">The children ........... (do) their homework every day, but yesterday they ........... (not do) it</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) do / didn't do ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) did / didn't do</div>
+                    <div class="option" onclick="checkAnswer(this)">C) do / didn't</div>
+                    <div class="option" onclick="checkAnswer(this)">D) did / not did</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) do / didn't do</div>
+                    <div class="answer-text">The children do their homework every day, but yesterday they didn't do it</div>
+                    <div class="answer-explanation">
+                        "every day" = حاضر (Present Simple)<br>
+                        "yesterday" = ماضي (Past Simple)
+                    </div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">3️⃣0️⃣ السؤال الثلاثون - الأخير</div>
+                <div class="question-text">As soon as I ........... (meet) her, I ........... (know) she was the one</div>
+                <div class="options">
+                    <div class="option" onclick="checkAnswer(this)">A) met / knew ✓</div>
+                    <div class="option" onclick="checkAnswer(this)">B) meet / know</div>
+                    <div class="option" onclick="checkAnswer(this)">C) met / know</div>
+                    <div class="option" onclick="checkAnswer(this)">D) meet / knew</div>
+                </div>
+                <div class="answer-section" style="display:none;">
+                    <div class="answer-label">✅ الصحيح: A) met / knew</div>
+                    <div class="answer-text">As soon as I met her, I knew she was the one</div>
+                    <div class="answer-explanation">
+                        أحداث متتالية في الماضي<br>
+                        "meet" → "met"<br>
+                        "know" → "knew"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="footer">
+            <h2>🎉 مبروك! انتهيت من الاختبار! 🏆</h2>
+            <p>تذكر: Past Simple = حدث انتهى مع وقت محدد! ⏰</p>
+            <p style="margin-top: 20px; font-size: 1.1em; font-weight: 600;">
+                🌟 أنت الآن خبير في Past Simple! استمر في التمرين! 💪
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(element) {
+            const option = element;
+            const question = option.closest('.question');
+            const answerSection = question.querySelector('.answer-section');
+            
+            if (option.textContent.includes('✓')) {
+                option.style.background = 'linear-gradient(135deg, #6BCB77 0%, #4D96FF 100%)';
+                option.style.color = 'white';
+                answerSection.style.display = 'block';
+                setTimeout(() => {
+                    answerSection.style.animation = 'slideDown 0.5s ease';
+                }, 0);
+            } else {
+                option.style.opacity = '0.5';
+                option.style.transform = 'scale(0.95)';
+            }
+        }
+
+        function playSound(verb) {
+            console.log('Playing sound for: ' + verb);
+        }
+    </script>
+</body>
+</html>
